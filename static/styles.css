@@ -9,12 +9,30 @@ html, body {
 
 #lyricsDisplay {
     font-size: 24px;
-    margin-top: 20px;
-    height: 300px;
-    overflow-y: auto; /* Enable scrolling */
-    border: 1px solid #ccc;
-    padding: 10px;
+    height: 90vh;
+    overflow-y: auto;
+    color: rgba(254, 254, 255, 0.5);
+    line-height: 80px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
+#lyricsDisplay::-webkit-scrollbar {
+    display: none;
+}
+
 .current-line {
-    background-color: yellow; /* Highlight current line */
+    color: rgba(254, 254, 255, 1);
+    font-size: 32px;
+    transition: font-size .3s ease-in-out;
+    font-weight: bolder;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
 }

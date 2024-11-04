@@ -83,13 +83,13 @@
 //     }
 // }
 
-let lyrics = [];
+let lyricss = [];
 let currentLineIndex = 0;
 let intervalId;
 let isPlaying = false; // Track playback state
 
-document.getElementById('startButton').addEventListener('click', function() {
-    const lrcContent = document.getElementById('lrcInput').value;
+function loadLyrics() {
+    const lrcContent = syncedLyrics;
     parseLrc(lrcContent);
     if (lyrics.length > 0) {
         currentLineIndex = 0; // Reset index to start from the beginning
@@ -98,7 +98,7 @@ document.getElementById('startButton').addEventListener('click', function() {
     } else {
         alert("No valid lyrics found.");
     }
-});
+}
 
 document.getElementById('playPauseButton').addEventListener('click', function() {
     if (isPlaying) {
@@ -153,12 +153,12 @@ function startLyricsDisplay() {
 
 function playLyrics() {
     isPlaying = true;
-    document.getElementById('playPauseButton').innerText = 'Pause'; // Change button text
+    document.getElementById('playPauseButton').innerHTML = '<i data-feather="play"></i>'; // Change button text
 }
 
 function pauseLyrics() {
     isPlaying = false;
-    document.getElementById('playPauseButton').innerText = 'Play'; // Change button text
+    document.getElementById('playPauseButton').innerHTML = '<i data-feather="play"></i>'; // Change button text
 }
 
 function displayLyrics() {

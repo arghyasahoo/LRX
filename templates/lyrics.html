@@ -10,7 +10,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="loadLyrics()">
     <div class="container-fluid bg-dark h-100">
         <div class="row h-100 ms-5">
             <div class="col-md-3">
@@ -29,23 +29,30 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button id="playPauseButton">Play</button>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 text-center">
+                        <button type="button" id="playPauseButton" class="btn btn-outline-light btn-xl btn-circle">
+                            <i data-feather="play"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-4"></div>
                 </div>
             </div>
-            <div class="col-md-9 text-light p-5">
-                <textarea id="lrcInput" rows="10" cols="50" placeholder="Paste LRC content here..."></textarea><br>
-                <button id="startButton">Start Lyrics</button>
-                <div id="lyricsDisplay"></div>
-
-                <!-- {% for line in lyrics.syncedLyrics.split("\n") %}
-                <p>{{ line }}</p>
-                {% endfor %} -->
+            <div class="col-md-9 text-light p-5 h-100">
+                <div id="lyricsDisplay" class="p-5 h-100"></div>
             </div>
         </div>
     </div>
 
+    <script>
+        const syncedLyrics = {{ lyrics.syncedLyrics| tojson | safe }};
+    </script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        feather.replace();
+    </script>
     <script src="{{ url_for('static', path='script.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lrc-parser/dist/lrc-parser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
