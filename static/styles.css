@@ -1,0 +1,20 @@
+html, body {
+    height: 100%;
+}
+
+#album-art {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#lyricsDisplay {
+    font-size: 24px;
+    margin-top: 20px;
+    height: 300px;
+    overflow-y: auto; /* Enable scrolling */
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.current-line {
+    background-color: yellow; /* Highlight current line */
+}

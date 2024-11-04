@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid bg-dark h-100">
+        <div class="row h-100 ms-5">
+            <div class="col-md-3">
+                <div class="row h-50 d-flex align-items-end">
+                    <div class="col d-flex justify-content-center" id="album-art">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/0/08/I_Let_It_in_and_It_Took_Everything.jpg"
+                            alt="" width="90%">
+                    </div>
+                </div>
+                <div class="row h-40 d-flex align-items-start">
+                    <div class="col d-flex justify-content-center pt-5 mt-5">
+                        <div id="track-info">
+                            <div class="fs-1 text-light text-center">Loathe</div>
+                            <div class="fs-3 text-light text-center">Two Way Mirror</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <button id="playPauseButton">Play</button>
+                </div>
+            </div>
+            <div class="col-md-9 text-light p-5">
+                <textarea id="lrcInput" rows="10" cols="50" placeholder="Paste LRC content here..."></textarea><br>
+                <button id="startButton">Start Lyrics</button>
+                <div id="lyricsDisplay"></div>
+
+                <!-- {% for line in lyrics.syncedLyrics.split("\n") %}
+                <p>{{ line }}</p>
+                {% endfor %} -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lrc-parser/dist/lrc-parser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
